@@ -1,5 +1,5 @@
 :root {
-    --primary-text-color: #576b80;
+    --primary-text-color: #576b80; 
     --secoondary-text-color: #696cff;
     --accent-color: #697a8d;
     --accent-color-dark: #1d69a3;
@@ -42,7 +42,7 @@ nav{
 
 .logo_name{
     font-size:35px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family:'Poppins',sans-serif;
     padding-left :25px;
     padding-block: 15px;
 }
@@ -58,8 +58,17 @@ nav{
     border-color:#0000;
     border:2px;
     transition: 0.4s ease;
+    cursor:pointer;
 }
-
+.dashboard i{
+    padding-inline:8px;
+}
+.pages{
+    margin-top:40px;
+}
+h1,h2,h3{
+    font-family: 'Ubuntu', sans-serif;
+}
 
 
 /*Main-div*/
@@ -75,7 +84,7 @@ nav{
 .bar {
     padding-block: 4px;
     padding-inline: 10px;
-    width: 100%;
+    
     height: 75px;
     background-color: #fff;
     
@@ -108,7 +117,27 @@ nav{
     margin-block: 30px;
     justify-content: space-around;
 }
-
+.btn{
+    padding-block:10px 
+    ;
+}
+button{
+    padding: 5px;
+    font-size:1.2rem;
+    font-weight: bold;
+    background-color:#696cff;
+    color:#fff;
+    border-radius:4px;
+    width:250px;
+  }
+button:hover{
+    box-shadow: 0px 5px 15px rgb(0,0,0,0.06);
+    background:none;
+    color:#696cff;
+    transition: 0.3s ease;
+    
+    cursor:pointer;
+  }
 .admin-welcome {
     padding-block: 20px;
     padding-inline: 40px;
@@ -119,11 +148,21 @@ nav{
 .cont-1 {
     width: 15%;
     height: 200px;
-    background-color: orange;
+    background-color: #696cff;
     margin-inline: 20px;
 }
+.cont-1 p{
+    padding:10px;
+    font-size:25px;
+}
+.cont-1 i{
+    font-size:40px;
+}
+.cont-1-details{
+    margin:20px;   
+}
 .cont-2 {
-    background-color: red;
+    background-color: rgba(101, 46, 195, 0.848);
     width: 15%;
     height: 200px;
 }
