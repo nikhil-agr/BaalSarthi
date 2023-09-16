@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en"> 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BaalSarthi</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=Ubuntu:wght@300&display=swap');
-      </style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BaalSarthi</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=Ubuntu:wght@300&display=swap');
+            </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js" ></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -61,13 +66,62 @@
                     </div>
 
                 </div>
-                <div class="cont-2 box-details"></div>
+                
             </div>  
 
+
+
+            <!-- category wise charts -->
+            <div class="admin_details flex"> 
+                <div class="cont-1 box-details pad">
+                    Boys
+                </div>
+
+                <div class="cont-1 box-details pad">
+                        Girls
+                    
+                </div>
+
+                <div class="cont-1 box-details pad">
+                    Category
+                </div>
+            </div>  
+
+            <!-- pie chart -->
+
+            <div class="admin_details flex">  
+                <div class="cont-2 box-details pad">
+                    PIE CHART
+                      
+                
+                    <canvas id="pie_chart"></canvas>
+                </div>         
+            </div>
             
 
         </div>
     </main>
     
+
+    <script>
+        new Chart(document.getElementById('pie_chart'),{
+            type:'pie',
+            data :{
+                labels:['boys','girls','poverty','income','child marriage'],
+                datasets:[{
+                    backgroundColor:['#EBE4D1','#26577C','#E55604','#FFCC70','#FFB000'],
+                    data:[428,300,260,510,310],
+                }]
+            },
+            options:{
+                title:{
+                    display:true,
+                    text:'pie chart for analysis',
+                },
+                responsive:true
+            }
+
+        });
+    </script>
 </body>
 </html>
