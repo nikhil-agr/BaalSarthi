@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>BaalSarthi</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=Ubuntu:wght@300&display=swap');
@@ -50,10 +50,10 @@
 
             <div class="admin_details flex">
                 <div class="admin-welcome box-details">
-                    <h1>Pranshul Pahwa</h1>
+                    <h1>Ravinder</h1>
                     <br>
                     <h3>Clerk</h3>
-                    <h2>Silver Oak Public School</h2>
+                    <h2>Govt School</h2>
                     <div class="btn">
                         <button onclick="document.location='index2.html'">Add New Entry</button>
                     </div>
@@ -62,7 +62,7 @@
                     <div class="cont-1-details">
                         <p>Total Entries</p>
                         <i class="fa-solid fa-chart-pie"></i>   
-                        <p>120</p>
+                        <div id="total_no"></div>
                     </div>
 
                 </div>
@@ -74,12 +74,12 @@
             <!-- category wise charts -->
             <div class="admin_details flex"> 
                 <div class="cont-1 box-details pad">
-                    Boys
+                    Boys <div id="total_boys"></div>
                 </div>
 
                 <div class="cont-1 box-details pad">
                         Girls
-                    
+                        <div id="total_girls"></div>
                 </div>
 
                 <div class="cont-1 box-details pad">
@@ -104,14 +104,21 @@
     
 
     <script>
-        new Chart(document.getElementById('pie_chart'),{
+    
+
+const fetchData = async ()=>{
+
+const response = await fetch('/api/data');
+const data = await response.json();
+
+new Chart(document.getElementById('pie_chart'),{
             type:'pie',
             data :{
-                labels:['boys','girls','poverty','income','child marriage'],
+                labels:data.pieChartLabels,
                 datasets:[{
-                    backgroundColor:['#EBE4D1','#26577C','#E55604','#FFCC70','#FFB000'],
-                    data:[428,300,260,510,310],
-                }]
+                    backgroundColor:data.pieChartColors,
+                    data:data.pieChartData,
+                }] // data.pieChartData
             },
             options:{
                 title:{
@@ -120,8 +127,15 @@
                 },
                 responsive:true
             }
-
+            
         });
+        document.getElementById('total_no').textContent = data.total;
+        document.getElementById('total_boys').textContent = data.boys;
+        document.getElementById('total_girls').textContent = data.girls;
+}
+
+fetchData();
+
     </script>
 </body>
 </html>
