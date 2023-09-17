@@ -151,7 +151,18 @@ button:hover{
     font-size: 20px;
     padding-inline:30px ;
 }
-
+#total_girls{
+    font-size:20px;
+    padding:20px;
+}
+#total_boys{
+    font-size:20px;
+    padding:20px;
+}
+#total_no{
+    font-size:20px;
+    padding:20px;
+}
 .cont-2 {
     width: 65%;
     height: 270px;
