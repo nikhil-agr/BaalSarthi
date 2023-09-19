@@ -140,7 +140,7 @@ button:hover{
     padding-inline: 40px;
     background-color: #fff;
     width: 65%;
-    height: 200px;
+    height: 210px;
 }
 .cont-1 {
     width: 30%;
@@ -148,17 +148,22 @@ button:hover{
     background-color: #ffffff;
 }
 .cont-1 p{
-    font-size: 20px;
+    font-size: 25px;
     padding-inline:30px ;
 }
-#total_girls{
-    font-size:20px;
-    padding:20px;
+.cont-1-details{
+    padding-block: 20px;
 }
-#total_boys{
-    font-size:20px;
-    padding:20px;
+.total{
+    display:inline;
+    padding:10px;
 }
+
+.cont-1 .img1{
+    margin-left:75%;
+    /* padding-left: 185px; */
+}
+
 #total_no{
     font-size:20px;
     padding:20px;
