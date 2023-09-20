@@ -54,6 +54,7 @@
                     <br>
                     <h3>Clerk</h3>
                     <h2>Govt School</h2>
+                    <h3>Total admissions:-<span></span></h3>
                     <div class="btn">
                         <button onclick="document.location='index2.html'">Add New Entry</button>
                     </div>
@@ -61,7 +62,7 @@
                 <div class="cont-1 box-details">
                     <div class="cont-1-details">
                         <p>Total Entries</p>
-                        <i class="fa-solid fa-chart-pie"></i>   
+                          
                         <div id="total_no"></div>
                     </div>
 
@@ -74,12 +75,33 @@
             <!-- category wise charts -->
             <div class="admin_details flex"> 
                 <div class="cont-1 box-details pad">
-                    <p>Boys </p><div id="total_boys"></div>
+                    <p>Boys </p>
+                    <div class="img1"><img src="boy.jpg" height="140px" width="60px" style="float:right"></div>
+                    <div class="total" style="font-size:20px;">
+                        <h4>Total No :</h4>
+                        <p id="total_boys"></p>      
+                    </div>
+
+                    <div class="total" style="font-size:20px;">
+                        <h4>Percentage :</h4>
+                        <p id="total_boys_per"></p>
+                    </div>
+                    
                 </div>
  
                 <div class="cont-1 box-details pad">
                         <p>Girls</p>
-                        <div id="total_girls"></div>
+                        <div class="img1"><img src="girl.jpg" height="140px" width="60px" style="float:right"></div>
+                        <div class="total" style="font-size:20px;">
+                            <h4>Total No :</h4>
+                            <p id="total_girls"></p>      
+                        </div>
+    
+                        <div class="total" style="font-size:20px;">
+                            <h4>Percentage :</h4>
+                            <p id="total_girls_per"></p>
+                        </div>
+                        
                 </div>
 
                 <div class="cont-1 box-details pad">
@@ -95,6 +117,15 @@
                       
                 
                     <canvas id="pie_chart"></canvas>
+                </div>         
+            </div>
+            
+            <div class="admin_details flex">  
+                <div class="cont-2 box-details pad">
+                    BAR CHART
+                      
+                
+                    <canvas id="bar_chart"></canvas>
                 </div>         
             </div>
             
@@ -133,9 +164,42 @@ new Chart(document.getElementById('pie_chart'),{
         document.getElementById('total_boys').textContent = data.boys;
         document.getElementById('total_girls').textContent = data.girls;
 }
-
+ 
 fetchData();
 
+    </script>
+    <script>
+        // Create a bar chart
+        var labels = ['Label 1', 'Label 2', 'Label 3'];
+        var dataset1Data = [400, 500, 340];
+        var dataset2Data = [450, 560, 340];
+
+        new Chart(document.getElementById('bar_chart'), {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'Dataset 1',
+                        data: dataset1Data,
+                        backgroundColor: '#F4E869'
+                    },
+                    {
+                        label: 'Dataset 2',
+                        data: dataset2Data,
+                        backgroundColor: '#3085C3'
+                    }
+                ]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Bar Chart for Analysis'
+                },
+                responsive: true
+            }
+        });
+    </script>
     </script>
 </body>
 </html>
