@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+const jwt = require("jsonwebtoken");
 const dropoutSchema = new mongoose.Schema({
 
     sname : {
@@ -47,8 +47,22 @@ const dropoutSchema = new mongoose.Schema({
         type : String,
         required : true,
     },
+    block:{
+        type : String,
+        required : true,
+    },
+    district:{
+        type : String,
+        required : true,
+    },
+    rollno:{
+        type : Number,
+        required : true,
+        unique: true
+    },
 });
-// now we need to create a collection
 
-const Totalentries = new mongoose.model("Totalentries",dropoutSchema);
-module.exports = Totalentries;
+
+const School3 = new mongoose.model("School3",dropoutSchema);
+module.exports = School3;
+
