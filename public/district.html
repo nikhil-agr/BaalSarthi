@@ -62,7 +62,14 @@
                 <div class="cont-1 box-details">
                     <div class="cont-1-details">
                         <p>Total Entries</p>
-                          
+                        <div class="cont1-data">
+                            <div id="total_no"></div>
+                            <!-- <br><br> -->
+                            <div id="confirmed_cases"></div>
+                            <!-- <br><br> -->
+                            <div id="non_confirmed_cases">Non Confirmed Cases : 0</div>
+
+                        </div>
                         <div id="total_no"></div>
                     </div>
 
@@ -139,6 +146,19 @@
                 <div class="category">
                     <div>
                         <form>
+                            <label for="Selectdesiredfilter">Select block:</label>
+                            <select id="Selectdesiredfilter" name="category" style="margin-top: 20px;width:250px">
+                                <option value="NULL">--Select Block--</option>
+                                <option value="Block1">Block1</option>
+                                <option value="Block2">Block2</option>
+                                <!-- <option value="Block3">Block 3</option>
+                                <option value="Block4">Block 4</option> -->
+                            </select>
+                            <br>
+                        </form>
+                    </div>
+                    <div>
+                        <form>
                             <label for="Selectdesiredfilter">Select school:</label>
                             <select id="Selectdesiredfilter" name="category" style="margin-top: 20px;width:250px">
                                 <option value="NULL">--Select School--</option>
@@ -153,26 +173,14 @@
                         </form>
                     </div>
 
-                    <div>
-                        <form>
-                            <label for="Selectdesiredfilter">Select block:</label>
-                            <select id="Selectdesiredfilter" name="category" style="margin-top: 20px;width:250px">
-                                <option value="NULL">--Select Block--</option>
-                                <option value="Block1">Block 1</option>
-                                <option value="Block2">Block 2</option>
-                                <option value="Block3">Block 3</option>
-                                <option value="Block4">Block 4</option>
-                            </select>
-                            <br>
-                        </form>
-                    </div>
+                    
                     <div>
                         <form>
                             <label for="Selectdesiredfilter">Select Category:</label>
                             <select id="Selectdesiredfilter" name="category" style="margin-top: 20px;width:250px">
                                 <option value="NULL">--Select Category--</option>
                                 <option value="general">GENERAL</option>
-                                <option value="ews">GEN-EWS</option>
+                                <!-- <option value="ews">GEN-EWS</option> -->
                                 <option value="obc">OBC</option>
                                 <option value="sc">SC</option>
                                 <option value="st">ST</option>
@@ -192,8 +200,8 @@
                         <label for="Selectdesiredfilter">Select gender:</label>
                         <select id="Selectdesiredfilter" name="category" style="margin-top: 20px;width:250px">
                             <option value="NULL">--Select Gender</option>
-                            <option value="Boys">Boys</option>
-                            <option value="Girls">Girls</option>
+                            <option value="Boys">male</option>
+                            <option value="Girls">female</option>
                         </select>
                         <br>
                     </form>
@@ -201,10 +209,11 @@
                     <form>
                         <label for="Selectdesiredfilter">Select class:</label>
                         <select id="Selectdesiredfilter" name="category" style="margin-top: 20px;width:250px">
-                            <option value="NULL">--Select Class--</option>
-                            <option value="Class1">I-V</option>
-                            <option value="Class2">VI-X</option>
-                            <option value="Class3">XI-XII</option>
+                            <option value="NULL">--Select Age--</option>
+                            <option value="Class1">under 6</option>
+                            <option value="Class2">under 10</option>
+                            <option value="Class3">under 15</option>
+                            <option value="Class3">under 18</option>
                         </select>
                         <br>
                     </form>
@@ -215,7 +224,8 @@
             </div>
 
             <div id="filtered_result">
-                
+                <h2>The results based on your query is :</h2>
+                    <h4 style="text-align: center;" id="result_filtered"></h4>
             </div>
         </div>
 
@@ -255,7 +265,11 @@ new Chart(document.getElementById('pie_chart'),{
         document.getElementById('obc').textContent = "OBC : "+data.district1_obc;
         document.getElementById('sc').textContent = "SC : "+data.district1_sc;
         document.getElementById('st').textContent = "ST : "+data.district1_st;
-}
+        document.getElementById('confirmed_cases').textContent = "Confirmed Cases : "+ data.district1_total;
+        document.getElementById('total_boys_per').textContent = (data.district1Boys_total/400);
+        document.getElementById('total_girls_per').textContent = (data.district1Girls_total/400);
+        document.getElementById('result_filtered').textContent = (data.total);
+    }
  
 fetchData();
 
