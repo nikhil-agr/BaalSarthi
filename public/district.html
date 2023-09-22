@@ -106,12 +106,34 @@
 
                 <div class="cont-1 box-details pad">
                     <p style="text-align: center; font-size: 30px;">Category</p>
-                    <div class="cat">General: </div>
-                    <div class="cat">OBC: </div>
-                    <div class="cat">SC: </div>
-                    <div class="cat">ST: </div>
+                    <div class="cat" id="gen">General: </div>
+                    <div class="cat" id="obc">OBC: </div>
+                    <div class="cat" id="sc">SC: </div>
+                    <div class="cat" id="st">ST: </div>
                 </div>
             </div>  
+            
+
+            <!-- pie chart -->
+
+            <div class="admin_details flex">  
+                <div class="cont-2 box-details pad">
+                    PIE CHART
+                      
+                
+                    <canvas id="pie_chart"></canvas>
+                </div>         
+            </div>
+            
+            <div class="admin_details flex">  
+                <div class="cont-2 box-details pad">
+                    BAR CHART
+                      
+                
+                    <canvas id="bar_chart"></canvas>
+                </div>         
+            </div>
+            
             <div class="filterbox">
                 
                 <div class="category">
@@ -192,28 +214,11 @@
                 
             </div>
 
-            <!-- pie chart -->
-
-            <div class="admin_details flex">  
-                <div class="cont-2 box-details pad">
-                    PIE CHART
-                      
+            <div id="filtered_result">
                 
-                    <canvas id="pie_chart"></canvas>
-                </div>         
             </div>
-            
-            <div class="admin_details flex">  
-                <div class="cont-2 box-details pad">
-                    BAR CHART
-                      
-                
-                    <canvas id="bar_chart"></canvas>
-                </div>         
-            </div>
-            
-
         </div>
+
     </main>
     
 
@@ -246,6 +251,10 @@ new Chart(document.getElementById('pie_chart'),{
         document.getElementById('total_no').textContent = data.district1_total;
         document.getElementById('total_boys').textContent = data.district1Boys_total;
         document.getElementById('total_girls').textContent = data.district1Girls_total;
+        document.getElementById('gen').textContent = "General : "+data.district1_gen;
+        document.getElementById('obc').textContent = "OBC : "+data.district1_obc;
+        document.getElementById('sc').textContent = "SC : "+data.district1_sc;
+        document.getElementById('st').textContent = "ST : "+data.district1_st;
 }
  
 fetchData();
