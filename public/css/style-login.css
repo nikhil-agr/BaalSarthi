@@ -1,5 +1,5 @@
 
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@200;300;400;500;600;700&family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@200;300;400;500;600;700&family=Ubuntu:wght@300&display=swap');
 *{
     box-sizing: border-box;
     margin:0;
@@ -20,9 +20,9 @@ body{
 .link {
     text-decoration: none;
     color:black;
-    padding:0px 30px;
+    padding:0 30px;
     font-weight: bold;
-    font-size:120%
+    font-size:120%;
 }
 
 
@@ -104,12 +104,13 @@ body{
 }
 .form-box input{
     width:100%;
-    font-weight: bold;
+    /* font-weight: bold; */
     background:transparent;
     border:none;
     outline:none;
-    font-size:130%;
+    font-size:100%;
     padding: 3px;
+    color:white;
 }
 .form-box label{
     font-size:120%;
