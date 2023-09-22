@@ -42,7 +42,8 @@ nav{
 }
 
 .logo_name{
-    font-size:35px;
+    margin-top: 10px;
+    font-size: 35px;
     font-family:'Poppins',sans-serif;
     margin-inline: auto;
 }
@@ -50,6 +51,11 @@ nav{
 .logo_name a{
     color: black;
     text-decoration: none;
+}
+
+.logo_name img{
+    width: 220px;
+    height: auto;
 }
 
 .logo_name a:visited {
@@ -64,15 +70,15 @@ hr{
 }
 
 .dashboard {
-    font-size:20px;
+    font-size:25px;
     padding-left:10px;
     padding:10px;
 }
 .dashboard:hover{
     background-color:#696cff;
     border-radius:5px;
-    border-color:#0000;
-    border:2px;
+    color: #fff;
+    border:2px solid #000;
     transition: 0.4s ease;
     cursor:pointer;
 }
@@ -221,31 +227,50 @@ button:hover{
 form {
     background-color: #fff;
     width: 100%;
-    margin: 20px auto 0 auto;
-    padding: 20px;
     border-radius: 4px;
+    margin: 20px auto 0 auto;
+
+}
+
+.form {
+    padding: 20px;
     font-size: 12px;
     display: grid;
     grid-template-columns: 50% 50%;
 }
 
 .formdesign {
+    font-family: 'Ubuntu', sans-serif;
     color: #2A2F4F;
     display: flex;
     flex-direction: column;
     font-size: 20px;
     margin: 10px 0;
+    margin-left: 40px;
+    font-weight: 400;
 }
 
 .formdesign input,
-select {
+select {    
     display: block;
     width: 70%;
     padding: 8px 18px;
     border: 2px solid #6C9BCF;
+    border-top: none;
+    border-left: none;
+    border-right: none;
     /* margin: 14px auto; */
-    border-radius: 4px;
-    font-size: 15px;
+    font-size: 16px;
+    color: #272829;
+    /* font-family: 'popins'; */
+    font-weight: 400;
+}
+
+.formdesign input:focus{
+    background-color: #F1EFEF;
+    border-radius: 7px;
+    outline: none;
+    border-bottom: 2px solid #6c9bcf;
 }
 
 #faddress {
@@ -265,12 +290,12 @@ select {
 }
 
 .but {
-    margin-block: auto;
+    margin-top: 30px;
     color: #fff;
     background-color: rgb(105, 108, 255, 80%);
     border: none;
-    border-radius: 4px;
-    width: 70%;
+    border-radius: 6px;
+    width: 30%;
     height: 50px;
     font-size: 25px;
     transition: 0.2s ease-in-out;
@@ -278,6 +303,7 @@ select {
 
 .but:hover {
     border: 3px solid rgb(105, 108, 255, 80%);
+    color: #fff;
     background-color: var(--secoondary-text-color);
     font-size: 28px;
     cursor:pointer;
