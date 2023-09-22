@@ -22,15 +22,15 @@
     <main>
         <nav>
             <div class="nav-header">
-                <div class="logo_name">BaalSarthi</div>
-                <div >
+                <div class="logo_name flex"> <a href="index.html">BaalSarthi</a></div>
+                <hr>
+                <div>
                     <div class="dashboard"><i class="fa-solid fa-house"></i>Dashboard</div>
                     <div class="dashboard"><i class="fa-solid fa-user"></i>Login</div>
-                </div>
-
-                <div class="pages" >
-                    <div class="dashboard">Add new Entry</div>
-                    <div class="dashboard">Analysis</div>
+                    <div class="dashboard"><i class="fa-solid fa-plus"></i>Add new Entry</div>
+                    <div class="dashboard"><i class="fa-solid fa-chart-pie"></i>Analysis</div>
+                    <div class="dashboard"><i class="fa-solid fa-arrow-right"></i>Total Entries</div>
+                    <div class="dashboard"><i class="fa-solid fa-calendar-check"></i>Appointment</div>
                 </div>
 
                 
@@ -44,7 +44,7 @@
             <div class="bar box-details flex">
                 <div class="admin flex">
                     <img src="assets/admin-icon.png" alt="admin-icon" id="admin-icon">
-                    <div class="details" style="font-family:'Ubuntu', sans-serif;"></div>
+                    <div class="details" style="font-family:'Ubuntu', sans-serif;"><-name-></div>
                 </div>
             </div>
 
@@ -60,11 +60,17 @@
                     </div>
                 </div>
                 <div class="cont-1 box-details">
-                    <div class="cont-1-details">
-                        <p>Total Entries</p>
-                          
-                        <div id="total_no"></div>
-                    </div>
+                    
+                        <p>Total Entries</p> 
+                        <div class="cont1-data">
+                            <div id="total_no">Total Cases: </div>
+                            <br><br>
+                            <div id="confirmed_cases">Confirmed Cases: </div>
+                            <br><br>
+                            <div id="non_confirmed_cases">Non Confirmed Cases: </div>
+
+                        </div>
+                    
 
                 </div>
                 
@@ -129,7 +135,7 @@
                 </div>         
             </div>
             
-            <table id="dynamic-table">
+            <table id="dynamic-table" class="box-details">
                 <thead>
                     <tr>
                         <th>Name</th>
