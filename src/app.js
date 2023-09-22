@@ -114,7 +114,7 @@ app.post("/login", async (req, res) => {
       res.sendFile(path.join(__dirname, "../public/school.html"));
     } else {
       console.log("Invalid password");
-      res.status(401).send("Invalid username and password");
+      res.sendFile(path.join(__dirname, "../public/login.html"));
     }
   } catch (error) {
     console.error("Error:", error);
@@ -159,7 +159,7 @@ app.post("/index2",async (req,res)=>{
 
             const added = await newEntry.save();
             console.log(added);
-            res.status(201).sendFile(path.join(__dirname, "../public/index.html"));} else {
+            res.status(201).sendFile(path.join(__dirname, "../public/school.html"));} else {
               // Handle the case where the collectionName is not found
               res.status(400).send("Invalid collection name");
             }
@@ -197,9 +197,13 @@ app.get("/api/data",async(req,res)=>{
         const count_lackInterest = await Model.find({selectreason:"lack of interest"}).countDocuments()
         const count_boys = await Model.find({selectgender:"male"}).countDocuments()
         const count_girls = await Model.find({selectgender:"female"}).countDocuments()
-       
+        const percent_boys = ((count_boys *100 )/100);
+        const percent_girls = (count_girls);
         const projection = { sname: 1, fname: 1, address: 1 ,fage: 1,selectgender: 1,selectreason: 1};
-
+        const count_General = await Model.find({selectcategory:"General"}).countDocuments()
+        const count_OBC =  await Model.find({selectcategory:"OBC"}).countDocuments()
+        const count_SC =  await Model.find({selectcategory:"SC"}).countDocuments()
+        const count_ST =  await Model.find({selectcategory:"ST"}).countDocuments()
         // Find all documents with the specified projection
         const documents = await Model.find({}, projection);
         console.log(documents);
@@ -257,6 +261,12 @@ app.get("/api/data",async(req,res)=>{
             district1Girls_total :district1Girls_total,
             district1_pieChartData : [district1Poverty_total,district1ChildMarriage_total,district1HealthIssue_total,district1Bullying_total,district1femaleChild_total,district1LackofINterest_total],
             schname : collectionName,
+            percent_boys :percent_boys,
+            percent_girls :percent_girls,
+            count_General:count_General,
+            count_OBC:count_OBC,
+            count_SC:count_SC,
+            count_ST:count_ST
           };
         //   console.log(Totalentries.countDocuments({selectreason:"Poverty"}));
     
