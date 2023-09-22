@@ -7,7 +7,8 @@
     
     <!-- Add Bootstrap CSS link -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <style>
         /* Custom CSS styles for the carousel */
         /* Navbar Styling */
@@ -144,8 +145,27 @@
     }
     
 }
+hr{
+    border:1px solid black;
+    width:80%;
+    margin-top: 5%;
+}
 .navbar-brand img{
   height: 40px;
+}
+.max{
+    display:flex;
+    justify-content: space-between;
+    margin-inline:100px;
+    margin-block:30px;
+}
+.max1{
+    background-color:#ffffff;
+    width:32%;
+    box-shadow: rgba(161, 172, 184, 0.15) 0px 0px 6px 4px;
+    border-radius:5px;
+    margin-inline:20px;
+    height: 120px;
 }
 /* Footer styles */
 footer {
@@ -186,6 +206,23 @@ footer {
   color: #ff8c00;
 }
 
+.admin_details{
+    margin-block: 30px;
+    margin-left:9%;
+    justify-content: space-between;
+}
+.cont-2 {
+    width: 50%;
+    height: 350px;
+    background-color: #ffffff;
+}
+.box-details {
+    box-shadow: rgba(161, 172, 184, 0.15) 0px 0px 6px 4px;
+    border-radius: 6px;
+}
+.max1 h4{
+    margin-top: 10px;
+}
        
         
     </style>
@@ -305,6 +342,55 @@ footer {
         </div>
     </div>
 </div>
+
+
+
+<hr>
+<div class="heading" style="margin-top: 30px;"><h3>MAXIMUM DROPOUTS</h3></div>
+
+<div class="max">
+    <div class="max1">
+        <h4 style="text-align: center;">DISTRICT</h4>
+    </div>
+
+    <div class="max1">
+        <h4 style="text-align: center;">SCHOOL</h4>
+    </div>
+
+    <div class="max1">
+        <h4 style="text-align: center;">BLOCK</h4>
+    </div>
+
+</div>
+
+<div class="max">
+    <div class="max1">
+        <h4 style="text-align: center;">REASON</h4>
+    </div>
+    <div class="max1">
+        <h4 style="text-align: center;">AGE-GROUP</h4>
+    </div>
+    <div class="max1">
+        <h4 style="text-align: center;">jhdsbfhj</h4>
+    </div>
+</div>
+
+<hr>
+
+<div class="admin_details">  
+    <div class="cont-2 box-details pad">
+        BAR CHART
+        <canvas id="bar_chart"></canvas>
+    </div>  
+</div>
+
+<div class="admin_details">  
+    <div class="cont-2 box-details pad">
+        AREA  CHART
+        <canvas id="myMultipleAreaChart"></canvas>
+    </div>  
+</div>
+
 <footer>
     <div class="footer-content">
         <p>&copy; 2023 BaalSarthi Website. All rights reserved.</p>
@@ -316,7 +402,39 @@ footer {
             </ul>
         </div>
     </footer>
+    
+    <script>
+        // Create a bar chart
+        var labels = ['Label 1', 'Label 2', 'Label 3'];
+        var dataset1Data = [400, 500, 340];
+        var dataset2Data = [450, 560, 340];
 
+        new Chart(document.getElementById('bar_chart'), {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'Dataset 1',
+                        data: dataset1Data,
+                        backgroundColor: '#F4E869'
+                    },
+                    {
+                        label: 'Dataset 2',
+                        data: dataset2Data,
+                        backgroundColor: '#3085C3'
+                    }
+                ]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Bar Chart for Analysis'
+                },
+                responsive: true
+            }
+        });
+    </script>
 <!-- Add Bootstrap JS and jQuery scripts -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
@@ -329,5 +447,6 @@ footer {
         integrity="sha512-Ic9xkERjyZ1xgJ5svx3y0u3xrvfT/uPkV99LBwe68xjy/mGtO+4eURHZBW2xW4SZbFrF1Tf090XqB+EVgXnVjw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script></script>
+        
 </body>
 </html>
