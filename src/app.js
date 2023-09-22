@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const jwt = require("jsonwebtoken");
+const { ObjectId } = require('mongodb'); 
 // const Totalentries = require("./models/totalentries");
 // const school1 = require("./models/totalentries");
 // const school2 = require("./models/totalentries");
@@ -247,7 +248,18 @@ app.get("/api/data",async(req,res)=>{
         const district1LackofINterest_total =( await School1.find({selectreason:"lack of interest"}).countDocuments() + await School2.find({selectreason:"lack of interest"}).countDocuments() + 
         await School3.find({selectreason:"lack of interest"}).countDocuments()+ await School4.find({selectreason:"lack of interest"}).countDocuments());
 
+        const district1_gen = ( await School1.find({selectcategory:"General"}).countDocuments() + await School2.find({selectcategory:"General"}).countDocuments() + 
+        await School3.find({selectcategory:"General"}).countDocuments()+ await School4.find({selectcategory:"General"}).countDocuments());
 
+        const district1_obc = ( await School1.find({selectcategory:"OBC"}).countDocuments() + await School2.find({selectcategory:"OBC"}).countDocuments() + 
+        await School3.find({selectcategory:"OBC"}).countDocuments()+ await School4.find({selectcategory:"OBC"}).countDocuments());
+
+        const district1_sc = ( await School1.find({selectcategory:"SC"}).countDocuments() + await School2.find({selectcategory:"SC"}).countDocuments() + 
+        await School3.find({selectcategory:"SC"}).countDocuments()+ await School4.find({selectcategory:"SC"}).countDocuments());
+        
+        const district1_st = ( await School1.find({selectcategory:"ST"}).countDocuments() + await School2.find({selectcategory:"ST"}).countDocuments() + 
+        await School3.find({selectcategory:"ST"}).countDocuments()+ await School4.find({selectcategory:"ST"}).countDocuments());
+        
         const data = {
             pieChartLabels: ['poverty', 'childMarriage', 'healthIssue','Bullying','FemaleChild','Lack OF Interest'],
             pieChartData: [count_poverty,count_childMarriage,count_healthIssue,count_Bullying,count_FemaleChild,count_lackInterest],
@@ -266,7 +278,15 @@ app.get("/api/data",async(req,res)=>{
             count_General:count_General,
             count_OBC:count_OBC,
             count_SC:count_SC,
-            count_ST:count_ST
+            count_ST:count_ST,
+            district1_gen:district1_gen,
+            district1_obc:district1_obc,
+            district1_sc:district1_sc,
+            district1_st:district1_st,
+            count_school1:count_school1,
+            count_school2:count_school2,
+            count_school3:count_school3,
+            count_school4:count_school4
           };
         //   console.log(Totalentries.countDocuments({selectreason:"Poverty"}));
     
@@ -283,6 +303,42 @@ app.get("/api/data",async(req,res)=>{
       }
 });
 
+// app.delete('/api/delete/:id', async (req, res) => {
+//   const id = req.params.id;
+
+//   try {
+//     // Connect to the MongoDB database
+    
+
+//     // Access the "model" collection
+//     const collectionName = req.cookies.jwt;
+//       console.log(collectionName);
+//       const collectionMapping = {
+//         school1: School1, // Adjust these names to match your actual models
+//         school2: School2,
+//         school3: School3,
+//         school4: School4,
+//       };
+
+//       if (collectionName in collectionMapping) {
+//         const Model = collectionMapping[collectionName];
+//     // Perform the DELETE operation
+//     const result = await Model.deleteOne({ _id: new ObjectId(id) });
+
+//     if (result.deletedCount === 1) {
+//       // Document deleted successfully
+//       res.status(204).send();
+//     } else {
+//       // Document with the specified ID not found
+//       res.status(404).json({ error: 'Document not found' });
+//     } }else{
+//       res.status(400).send("Invalid collection name");
+//     }
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ error: 'Server error' });
+//   }
+// });
 
 
 app.listen(port,()=>{
