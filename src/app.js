@@ -205,6 +205,43 @@ app.get("/api/data",async(req,res)=>{
         console.log(documents);
         // const admin_designation = await Schooladmins.find({selectgender:"female"}).countDocuments()
         // const admin_school = await Schooladmins.find({selectgender:"female"}).countDocuments()
+        const count_school1 = await School1.find().countDocuments();
+        const count_school2 = await School2.find().countDocuments()
+        const count_school3 = await School3.find().countDocuments()
+        const count_school4 = await School4.find().countDocuments()
+        const district1_total = (count_school1 + count_school2 + count_school3 + count_school4 );
+        console.log(district1_total);
+        const count_school1Boys = await School1.find({selectgender:"male"}).countDocuments()
+        const count_school2Boys = await School2.find({selectgender:"male"}).countDocuments()
+        const count_school3Boys = await School3.find({selectgender:"male"}).countDocuments()
+        const count_school4Boys = await School4.find({selectgender:"male"}).countDocuments()
+        const district1Boys_total = (count_school1Boys + count_school2Boys +count_school3Boys +count_school4Boys)
+        console.log(district1Boys_total);
+        const count_school1Girls = await School1.find({selectgender:"female"}).countDocuments()
+        const count_school2Girls = await School2.find({selectgender:"female"}).countDocuments()
+        const count_school3Girls = await School3.find({selectgender:"female"}).countDocuments()
+        const count_school4Girls = await School4.find({selectgender:"female"}).countDocuments()
+        const district1Girls_total = (count_school1Girls + count_school2Girls +count_school3Girls +count_school4Girls)
+        console.log(district1Girls_total);
+
+        const district1Poverty_total =( await School1.find({selectreason:"Poverty"}).countDocuments() + await School2.find({selectreason:"Poverty"}).countDocuments() + 
+        await School3.find({selectreason:"Poverty"}).countDocuments()+ await School4.find({selectreason:"Poverty"}).countDocuments());
+        console.log(district1Poverty_total);
+
+        const district1ChildMarriage_total =( await School1.find({selectreason:"child marriage"}).countDocuments() + await School2.find({selectreason:"child marriage"}).countDocuments() + 
+        await School3.find({selectreason:"child marriage"}).countDocuments()+ await School4.find({selectreason:"child marriage"}).countDocuments());
+       
+        const district1HealthIssue_total =( await School1.find({selectreason:"health_issues"}).countDocuments() + await School2.find({selectreason:"health_issues"}).countDocuments() + 
+        await School3.find({selectreason:"health_issues"}).countDocuments()+ await School4.find({selectreason:"health_issues"}).countDocuments());
+
+        const district1Bullying_total =( await School1.find({selectreason:"bullying"}).countDocuments() + await School2.find({selectreason:"bullying"}).countDocuments() + 
+        await School3.find({selectreason:"bullying"}).countDocuments()+ await School4.find({selectreason:"bullying"}).countDocuments());
+
+        const district1femaleChild_total =( await School1.find({selectreason:"Girl_child"}).countDocuments() + await School2.find({selectreason:"Girl_child"}).countDocuments() + 
+        await School3.find({selectreason:"Girl_child"}).countDocuments()+ await School4.find({selectreason:"Girl_child"}).countDocuments());
+
+        const district1LackofINterest_total =( await School1.find({selectreason:"lack of interest"}).countDocuments() + await School2.find({selectreason:"lack of interest"}).countDocuments() + 
+        await School3.find({selectreason:"lack of interest"}).countDocuments()+ await School4.find({selectreason:"lack of interest"}).countDocuments());
 
         const data = {
             pieChartLabels: ['poverty', 'childMarriage', 'healthIssue','Bullying','FemaleChild','Lack OF Interest'],
@@ -213,7 +250,11 @@ app.get("/api/data",async(req,res)=>{
             total: count,
             boys : count_boys, 
             girls: count_girls,
-            student_details: documents
+            student_details: documents,
+            district1_total : district1_total,
+            district1Boys_total :district1Boys_total,
+            district1Girls_total :district1Girls_total,
+            district1_pieChartData : [district1Poverty_total,district1ChildMarriage_total,district1HealthIssue_total,district1Bullying_total,district1femaleChild_total,district1LackofINterest_total]
           };
         //   console.log(Totalentries.countDocuments({selectreason:"Poverty"}));
     
