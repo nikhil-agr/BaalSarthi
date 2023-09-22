@@ -44,8 +44,23 @@ nav{
 .logo_name{
     font-size:35px;
     font-family:'Poppins',sans-serif;
-    padding-left :25px;
-    padding-block: 15px;
+    margin-inline: auto;
+}
+
+.logo_name a{
+    color: black;
+    text-decoration: none;
+}
+
+.logo_name a:visited {
+    text-decoration: none;
+}
+
+hr{
+    margin-inline: auto;
+    /* margin-top: -20px; */
+    width: 70%;
+    margin-bottom: 20px;
 }
 
 .dashboard {
@@ -62,11 +77,9 @@ nav{
     cursor:pointer;
 }
 .dashboard i{
-    padding-inline:8px;
+    padding-inline: 10px;
 }
-.pages{
-    margin-top:40px;
-}
+
 h1,h2,h3{
     font-family: 'Ubuntu', sans-serif;
 }
@@ -143,16 +156,28 @@ button:hover{
     height: 210px;
 }
 .cont-1 {
+    padding-block: 20px;
     width: 30%;
     height: 200px;
     background-color: #ffffff;
 }
-.cont-1 p{
-    font-size: 25px;
-    padding-inline:30px ;
-}
 .cont-1-details{
     padding-block: 20px;
+    font-size: 20px;
+    font-family:'Poppins',sans-serif;
+}
+
+.cont-1 p{
+    font-size: 30px;
+    font-family:'Poppins',sans-serif;
+    text-align: center ;
+}
+.cont1-data{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    font-size: 20px;
+    padding-left: 20px;
 }
 .total{
     display:inline;
@@ -164,10 +189,6 @@ button:hover{
     /* padding-left: 185px; */
 }
 
-#total_no{
-    font-size:20px;
-    padding:20px;
-}
 .cont-2 {
     width: 65%;
     height: 270px;
@@ -251,4 +272,26 @@ select {
     background-color: var(--secoondary-text-color);
     font-size: 28px;
     cursor:pointer;
+}
+
+
+/* Table */
+table {
+    /* border: 1.5px solid black; */
+    border-radius: 15px;
+    border-collapse: collapse;
+    /* padding-block: 12px; */
+    padding: 20px;
+    
+}
+thead {
+    margin: 20px;
+    padding: 20px;
+}
+th {
+    padding-inline: 20px;
+    font-size: 20px;
+}
+tr td{
+    font-size: 15px;
 }
