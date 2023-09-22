@@ -218,103 +218,134 @@
     <script>
     
 
-const fetchData = async ()=>{
-
-const response = await fetch('/api/data');
-const data = await response.json();
-
-new Chart(document.getElementById('pie_chart'),{
-            type:'pie',
-            data :{
-                labels:data.pieChartLabels,
-                datasets:[{
-                    backgroundColor:data.pieChartColors,
-                    data:data.pieChartData,
-                }] // data.pieChartData
-            },
-            options:{
-                title:{
-                    // display:true,
-                    text:'pie chart for analysis',
-                },
-                responsive:true
-            }
-            
-        });
-        document.getElementById('total_no').textContent = data.total;
-        document.getElementById('total_boys').textContent = data.boys;
-        document.getElementById('total_girls').textContent = data.girls;
-        // document.getElementById('sch-admin').textContent = data.name;
-        document.getElementById('sch-name').textContent = data.schname;
-        document.getElementsByClassName('details').innerHTML = data.schname + " Admin";
-        document.getElementById('percent_girls').textContent = data.percent_girls;
-        document.getElementById('percent_boys').textContent = data.percent_boys;
-        document.getElementById('gen').textContent = "General : "+data.count_General;
-        document.getElementById('obc').textContent = "OBC : "+data.count_OBC;
-        document.getElementById('sc').textContent = "SC : "+data.count_SC;
-        document.getElementById('st').textContent = "ST : "+data.count_ST;
-        document.getElementById('confirmed_cases').textContent = "Confirmed Cases : "+data.total;
-        // documment.getElementByClass('details').textContent = data.admin_school;
-
-        // document.getElementById('designation').textContent = data.total;
-        // document.getElementById('sch-name').textContent = data.total;
-
-// Get a reference to the table body
-const tableBody = document.querySelector("#dynamic-table tbody");
-  // Use a for loop to iterate through data.student_details
-  for (let i = 0; i < data.student_details.length; i++) {
-    const item = data.student_details[i];
-    const row = document.createElement("tr");
-    row.innerHTML = `
-      <td>${item.sname}</td>
-      <td>${item.fname}</td>
-      <td>${item.address}</td>
-      <td>${item.fage}</td>
-      <td>${item.selectgender}</td>
-      <td>${item.selectreason}</td>
-      <td>${"----"}</td>
-    `;
-    tableBody.appendChild(row);
-  }
-
-    }
- 
-fetchData();
-
-
-    </script>
-    <script>
-        // Create a bar chart
-        var labels = ['Label 1', 'Label 2', 'Label 3'];
-        var dataset1Data = [400, 500, 340];
-        var dataset2Data = [450, 560, 340];
-
-        new Chart(document.getElementById('bar_chart'), {
-            type: 'bar',
-            data: {
-                labels: labels,
-                datasets: [
-                    {
-                        label: 'Dataset 1',
-                        data: dataset1Data,
-                        backgroundColor: '#F4E869'
+        const fetchData = async ()=>{
+        
+        const response = await fetch('/api/data');
+        const data = await response.json();
+        
+        new Chart(document.getElementById('pie_chart'),{
+                    type:'pie',
+                    data :{
+                        labels:data.pieChartLabels,
+                        datasets:[{
+                            backgroundColor:data.pieChartColors,
+                            data:data.pieChartData,
+                        }] // data.pieChartData
                     },
-                    {
-                        label: 'Dataset 2',
-                        data: dataset2Data,
-                        backgroundColor: '#3085C3'
+                    options:{
+                        title:{
+                            // display:true,
+                            text:'pie chart for analysis',
+                        },
+                        responsive:true
                     }
-                ]
-            },
-            options: {
-                title: {
-                    display: true,
-                    text: 'Bar Chart for Analysis'
-                },
-                responsive: true
+                    
+                });
+                document.getElementById('total_no').textContent = data.total;
+                document.getElementById('total_boys').textContent = data.boys;
+                document.getElementById('total_girls').textContent = data.girls;
+                // document.getElementById('sch-admin').textContent = data.name;
+                document.getElementById('sch-name').textContent = data.schname;
+                document.getElementsByClassName('details').innerHTML = data.schname + " Admin";
+                document.getElementById('percent_girls').textContent = data.percent_girls;
+                document.getElementById('percent_boys').textContent = data.percent_boys;
+                document.getElementById('gen').textContent = "General : "+data.count_General;
+                document.getElementById('obc').textContent = "OBC : "+data.count_OBC;
+                document.getElementById('sc').textContent = "SC : "+data.count_SC;
+                document.getElementById('st').textContent = "ST : "+data.count_ST;
+                document.getElementById('confirmed_cases').textContent = "Confirmed Cases : "+data.total;
+                // documment.getElementByClass('details').textContent = data.admin_school;
+        
+                // document.getElementById('designation').textContent = data.total;
+                // document.getElementById('sch-name').textContent = data.total;
+        
+        // Get a reference to the table body
+        const tableBody = document.querySelector("#dynamic-table tbody");
+          // Use a for loop to iterate through data.student_details
+          for (let i = 0; i < data.student_details.length; i++) {
+            const item = data.student_details[i];
+            const row = document.createElement("tr");
+            row.innerHTML = `
+              <td>${item.sname}</td>
+              <td>${item.fname}</td>
+              <td>${item.address}</td>
+              <td>${item.fage}</td>
+              <td>${item.selectgender}</td>
+              <td>${item.selectreason}</td>
+              <td>${"----"}</td>
+              <td>
+              <button class="edit-button" data-index="${i}">Edit</button></td>
+              <td>
+              <button class="delete-button" data-index="${i}">Delete</button>
+            </td>
+            `;
+            tableBody.appendChild(row);
+          }
+          const deleteButtons = document.querySelectorAll(".delete-button");
+          deleteButtons.forEach((button) => {
+            button.addEventListener("click", async (event) => {
+              const id = event.target.getAttribute("data-id");
+        
+            //   try {
+            //     const response = await fetch(`/api/delete/${id}`, {
+            //       method: "DELETE",
+            //       // Add any necessary headers or authentication tokens
+            //     });
+        
+                // if (response.ok) {
+                  // Deletion was successful, remove the row from the table
+                  tableBody.removeChild(event.target.closest("tr"));
+            //     } else {
+            //       // Handle the case where deletion failed (e.g., display an error message)
+            //       console.error("Deletion failed.");
+            //     }
+            //   } catch (error) {
+            //     // Handle network errors or other exceptions
+            //     console.error("Error:", error);
+            //   }
+            });
+          });
+        
+        
+        
             }
-        });
-    </script>
+         
+        fetchData();
+        
+        
+            </script>
+            <script>
+                // Create a bar chart
+                var labels = ['Label 1', 'Label 2', 'Label 3'];
+                var dataset1Data = [400, 500, 340];
+                var dataset2Data = [450, 560, 340];
+        
+                new Chart(document.getElementById('bar_chart'), {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [
+                            {
+                                label: 'Dataset 1',
+                                data: dataset1Data,
+                                backgroundColor: '#F4E869'
+                            },
+                            {
+                                label: 'Dataset 2',
+                                data: dataset2Data,
+                                backgroundColor: '#3085C3'
+                            }
+                        ]
+                    },
+                    options: {
+                        title: {
+                            display: true,
+                            text: 'Bar Chart for Analysis'
+                        },
+                        responsive: true
+                    }
+                });
+            </script>
     </script>
 </body>
 </html>
