@@ -227,7 +227,7 @@ new Chart(document.getElementById('pie_chart'),{
                 labels:data.pieChartLabels,
                 datasets:[{
                     backgroundColor:data.pieChartColors,
-                    data:data.pieChartData,
+                    data:data.district1_pieChartData,
                 }] // data.pieChartData
             },
             options:{
@@ -239,9 +239,9 @@ new Chart(document.getElementById('pie_chart'),{
             }
             
         });
-        document.getElementById('total_no').textContent = data.total;
-        document.getElementById('total_boys').textContent = data.boys;
-        document.getElementById('total_girls').textContent = data.girls;
+        document.getElementById('total_no').textContent = data.district1_total;
+        document.getElementById('total_boys').textContent = data.district1Boys_total;
+        document.getElementById('total_girls').textContent = data.district1Girls_total;
 }
  
 fetchData();
@@ -249,9 +249,9 @@ fetchData();
     </script>
     <script>
         // Create a bar chart
-        var labels = ['Label 1', 'Label 2', 'Label 3'];
-        var dataset1Data = [400, 500, 340];
-        var dataset2Data = [450, 560, 340];
+        var labels = ['Poverty', 'Child Marriage', 'Lacks Girls Facilities','Bad Infrastructure','No Teachers','Bullying','LackOFInterest'];
+        var dataset1Data = [400, 120, 340, 480 , 390,90, 700];
+        var dataset2Data = [450, 180, 340 , 420 , 190,140,600];
 
         new Chart(document.getElementById('bar_chart'), {
             type: 'bar',
@@ -259,12 +259,12 @@ fetchData();
                 labels: labels,
                 datasets: [
                     {
-                        label: 'Dataset 1',
+                        label: 'Year 1',
                         data: dataset1Data,
                         backgroundColor: '#F4E869'
                     },
                     {
-                        label: 'Dataset 2',
+                        label: 'Year 2',
                         data: dataset2Data,
                         backgroundColor: '#3085C3'
                     }
