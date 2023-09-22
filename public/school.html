@@ -44,7 +44,7 @@
             <div class="bar box-details flex">
                 <div class="admin flex">
                     <img src="assets/admin-icon.png" alt="admin-icon" id="admin-icon">
-                    <div class="details" style="font-family:'Ubuntu', sans-serif;">Ravinder</div>
+                    <div class="details" style="font-family:'Ubuntu', sans-serif;"></div>
                 </div>
             </div>
 
@@ -53,8 +53,8 @@
                     <div id="sch-admin"></div>
                     <br>
                     <h3 id="designation">Clerk</h3>
-                    <h2 id="sch-name">Govt School</h2>
-                    <h3>Total admissions:-<span></span></h3>
+                    <h2 id="sch-name"></h2>
+                    <h3>Total admissions : 100<span></span></h3>
                     <div class="btn">
                         <button onclick="document.location='index2.html'">Add New Entry</button>
                     </div>
@@ -76,7 +76,7 @@
             <div class="admin_details flex"> 
                 <div class="cont-1 box-details pad">
                     <p>Boys </p>
-                    <div class="img1"><img src="boy.jpg" height="140px" width="60px" style="float:right"></div>
+                    <div class="img1"><img src="/public/images/boy_145867.png" height="140px" width="60px" style="float:right"></div>
                     <div class="total" style="font-size:20px;">
                         <h4>Total No :</h4>
                         <p id="total_boys"></p>      
@@ -179,6 +179,9 @@ new Chart(document.getElementById('pie_chart'),{
         document.getElementById('total_boys').textContent = data.boys;
         document.getElementById('total_girls').textContent = data.girls;
         document.getElementById('sch-admin').textContent = data.name;
+        document.getElementById('sch-name').textContent = data.schname;
+        document.getElementsByClassName('details').innerHTML = data.schname + " Admin";
+        // documment.getElementByClass('details').textContent = data.admin_school;
 
         // document.getElementById('designation').textContent = data.total;
         // document.getElementById('sch-name').textContent = data.total;
