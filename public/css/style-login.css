@@ -19,13 +19,15 @@ body{
 }
 .link {
     text-decoration: none;
-    color:black;
+    color:rgb(0, 0, 0);
     padding:0 30px;
     font-weight: bold;
     font-size:120%;
 }
 
-
+.nav1 a :hover{
+    color:rgb(39, 37, 37);
+}
 .navbar-brand img{
     height: 35px;
   }
@@ -38,7 +40,10 @@ body{
     border-radius: 1px;
     height: 50px;
 }
-
+.nav1{
+    display:flex;
+    justify-content: space-between;
+}
 .container{
     position:absolute;
     width:65%;
@@ -149,6 +154,3 @@ body{
 button:hover{
     background-color: rgba(0, 128, 0, 0.654);
 }
-.navbar-brand img{
-    height: 40px;
-  }
