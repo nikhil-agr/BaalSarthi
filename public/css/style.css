@@ -190,9 +190,18 @@ button:hover{
 }
 
 .cont-2 {
+    width: 30%;
+    height: 270px;
+    background-color: #ffffff;
+}
+.cont-3{
     width: 65%;
     height: 270px;
     background-color: #ffffff;
+}
+
+.cat {
+    font-size: 20px;
 }
 
 
@@ -277,9 +286,8 @@ select {
 
 /* Table */
 table {
-    /* border: 1.5px solid black; */
-    border-radius: 15px;
-    border-collapse: collapse;
+    border: 2px solid #000;
+    background-color: #fff;
     /* padding-block: 12px; */
     padding: 20px;
     
@@ -288,10 +296,21 @@ thead {
     margin: 20px;
     padding: 20px;
 }
+tr {
+    margin-inline: 12px;
+    border: 1.5px solid #000;
+    /* border-radius: 15px; */
+    /* border-collapse: collapse; */
+    /* border-top: none;
+    border-left: none;
+    border-right: none; */
+    
+}
 th {
     padding-inline: 20px;
     font-size: 20px;
 }
-tr td{
-    font-size: 15px;
+td{
+    padding: 12px;
+    font-size: 20px;
 }
