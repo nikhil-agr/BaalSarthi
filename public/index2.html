@@ -11,22 +11,22 @@
       </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 </head>
 <body>
     <main>
         <nav>
             <div class="nav-header">
-                <div class="logo_name">BaalSarthi</div>
-                <div >
+                <div class="logo_name flex"><a href="index.html"><img src="images/logo.png" alt=""></a></div>
+                <hr>
                     <div class="dashboard"><i class="fa-solid fa-house"></i>Dashboard</div>
-                    <div class="dashboard"><i class="fa-solid fa-user"></i>Login</div>
-                </div>
-
-                <div class="pages" >
-                    <div class="dashboard">Add new Entry</div>
-                    <div class="dashboard">Analysis</div>
+                    <!-- <div class="dashboard"><i class="fa-solid fa-user"></i>Login</div> -->
+                    <!-- <div class="dashboard"><i class="fa-solid fa-plus"></i>Add new Entry</div> -->
+                    <div class="dashboard"><i class="fa-solid fa-chart-pie"></i>Analysis</div>
+                    <div class="dashboard"><i class="fa-solid fa-arrow-right"></i>Total Entries</div>
+                    <div class="dashboard"><i class="fa-solid fa-calendar-check"></i>Appointment</div>
+                    <div class="dashboard"><i class="fa-solid fa-address-book"></i>Contact</div>
                 </div>
 
                 
@@ -54,8 +54,8 @@
                 <div class="cont-2 box-details"></div>
             </div>  -->
 
-            <div class="form box-details">
-                <form action="/index2" name="myForm" onsubmit="return validateForm()" method="post">
+            <form action="/index2" name="myForm" class="box-details" onsubmit="return validateForm()" method="post">
+                <div class="form flex">
                     <div class="formdesign" id="name">
                         Name: <input type="text" name="sname" required><b><span class="formerror"> </span></b>
                     </div>
@@ -153,10 +153,12 @@
                         </select>
                     </div>
             
+                </div>
                     <!-- <input type="submit"  value="Submit"> -->
-                    <button class="but" type="submit">Submit</button>
                 </form>
-            </div>
+                <div class="flex">
+                    <button class="but" type="submit">Submit</button>
+                </div>
 
         </div>
     </main>
