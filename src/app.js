@@ -39,8 +39,8 @@ app.get("/login",(req,res)=>{
 app.get("/district",(req,res)=>{
   res.sendFile(path.join(__dirname, "../public/district.html"));
 });
-app.get("/home",(req,res)=>{
-  res.sendFile(path.join(__dirname, "../public/home.html"));
+app.get("/school",(req,res)=>{
+  res.sendFile(path.join(__dirname, "../public/school.html"));
 });
 // const createToken = async()=>{
 //   const token = await jwt.sign({_id : "650b1a613fd8c74515f95815"},"abcdefghijklmnopqrstuvwxyz12345678");
@@ -111,7 +111,7 @@ app.post("/login", async (req, res) => {
       console.log(token);
       res.cookie("jwt" , token);
       console.log(`this is the cookie stored : ${req.cookies.jwt}`);
-      res.sendFile(path.join(__dirname, "../public/index.html"));
+      res.sendFile(path.join(__dirname, "../public/school.html"));
     } else {
       console.log("Invalid password");
       res.status(401).send("Invalid username and password");
