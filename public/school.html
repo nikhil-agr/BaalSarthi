@@ -26,7 +26,7 @@
                 <hr>
                 <div>
                     <div class="dashboard"><i class="fa-solid fa-house"></i>Dashboard</div>
-                    <div class="dashboard"><i class="fa-solid fa-user"></i>Login</div>
+                    <!-- <div class="dashboard"><i class="fa-solid fa-user"></i>Login</div -->
                     <div class="dashboard"><i class="fa-solid fa-plus"></i>Add new Entry</div>
                     <div class="dashboard"><i class="fa-solid fa-chart-pie"></i>Analysis</div>
                     <div class="dashboard"><i class="fa-solid fa-arrow-right"></i>Total Entries</div>
@@ -50,7 +50,7 @@
 
             <div class="admin_details flex">
                 <div class="admin-welcome box-details">
-                    <div id="sch-admin"></div>
+                    <div id="sch-admin" style="font-size: 30px; font-family: 'poppins';">School Admin</div>
                     <br>
                     <h3 id="designation">Clerk</h3>
                     <h2 id="sch-name"></h2>
@@ -63,11 +63,11 @@
                     
                         <p>Total Entries</p> 
                         <div class="cont1-data">
-                            <div id="total_no">Total Cases: </div>
-                            <br><br>
-                            <div id="confirmed_cases">Confirmed Cases: </div>
-                            <br><br>
-                            <div id="non_confirmed_cases">Non Confirmed Cases: </div>
+                            <div id="total_no"></div>
+                            <!-- <br><br> -->
+                            <div id="confirmed_cases"></div>
+                            <!-- <br><br> -->
+                            <div id="non_confirmed_cases">Non Confirmed Cases : 0</div>
 
                         </div>
                     
@@ -82,14 +82,12 @@
             <div class="admin_details flex"> 
                 <div class="cont-1 box-details pad">
                     <p>Boys </p>
-                    <div class="img1"><img src="/public/images/boy_145867.png" height="140px" width="60px" style="float:right"></div>
+                    <div class="img1"><img src="images/boy_145867.png" height="100px" width="100px" style="float:right"></div>
                     <div class="total" style="font-size:20px;">
                         <h4>Total No :</h4>
                         <p id="total_boys"></p>      
-                    </div>
-
-                    <div class="total" style="font-size:20px;">
-                        <h4>Percentage :</h4>
+                   
+                        <h4>Percentage :<div id="percent_boys"></div></h4>
                         <p id="total_boys_per"></p>
                     </div>
                     
@@ -97,14 +95,12 @@
  
                 <div class="cont-1 box-details pad">
                         <p>Girls</p>
-                        <div class="img1"><img src="girl.jpg" height="140px" width="60px" style="float:right"></div>
+                        <div class="img1"><img src="images/girl_4329449.png" height="100px" width="100px" style="float:right"></div>
                         <div class="total" style="font-size:20px;">
                             <h4>Total No :</h4>
                             <p id="total_girls"></p>      
-                        </div>
-    
-                        <div class="total" style="font-size:20px;">
-                            <h4>Percentage :</h4>
+                        
+                            <h4>Percentage :<div id="percent_girls"></div></h4>
                             <p id="total_girls_per"></p>
                         </div>
                         
@@ -112,6 +108,10 @@
 
                 <div class="cont-1 box-details pad">
                     <p>Category</p>
+                    <div class="cat" id="gen">General: </div>
+                    <div class="cat" id="obc">OBC: </div>
+                    <div class="cat" id="sc">SC: </div>
+                    <div class="cat" id="st">ST: </div>
                 </div>
             </div>  
 
@@ -119,19 +119,31 @@
 
             <div class="admin_details flex">  
                 <div class="cont-2 box-details pad">
-                    PIE CHART
+                    <h4 style="text-align: center;">Reason Analysis</h4>
                       
                 
                     <canvas id="pie_chart"></canvas>
+                </div> 
+                <div class="cont-2 box-details pad">
+                    <h4 style="text-align: center;">Reason Analysis</h4>
+                      
+                
+                    <canvas id="doughut_chart1"></canvas>
+                </div> 
+                <div class="cont-2 box-details pad">
+                    <h4 style="text-align: center;">Reason Analysis</h4>
+                      
+                
+                    <canvas id="doughut_chart2"></canvas>
                 </div>         
             </div>
             
             <div class="admin_details flex">  
-                <div class="cont-2 box-details pad">
+                <div class="cont-3 box-details pad">
                     BAR CHART
                       
                 
-                    <canvas id="bar_chart"></canvas>
+                    <canvas id="bar_chart" width="100%"></canvas>
                 </div>         
             </div>
             
@@ -184,9 +196,16 @@ new Chart(document.getElementById('pie_chart'),{
         document.getElementById('total_no').textContent = data.total;
         document.getElementById('total_boys').textContent = data.boys;
         document.getElementById('total_girls').textContent = data.girls;
-        document.getElementById('sch-admin').textContent = data.name;
+        // document.getElementById('sch-admin').textContent = data.name;
         document.getElementById('sch-name').textContent = data.schname;
         document.getElementsByClassName('details').innerHTML = data.schname + " Admin";
+        document.getElementById('percent_girls').textContent = data.percent_girls;
+        document.getElementById('percent_boys').textContent = data.percent_boys;
+        document.getElementById('gen').textContent = "General : "+data.count_General;
+        document.getElementById('obc').textContent = "OBC : "+data.count_OBC;
+        document.getElementById('sc').textContent = "SC : "+data.count_SC;
+        document.getElementById('st').textContent = "ST : "+data.count_ST;
+        document.getElementById('confirmed_cases').textContent = "Confirmed Cases : "+data.total;
         // documment.getElementByClass('details').textContent = data.admin_school;
 
         // document.getElementById('designation').textContent = data.total;
