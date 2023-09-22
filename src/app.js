@@ -243,6 +243,7 @@ app.get("/api/data",async(req,res)=>{
         const district1LackofINterest_total =( await School1.find({selectreason:"lack of interest"}).countDocuments() + await School2.find({selectreason:"lack of interest"}).countDocuments() + 
         await School3.find({selectreason:"lack of interest"}).countDocuments()+ await School4.find({selectreason:"lack of interest"}).countDocuments());
 
+
         const data = {
             pieChartLabels: ['poverty', 'childMarriage', 'healthIssue','Bullying','FemaleChild','Lack OF Interest'],
             pieChartData: [count_poverty,count_childMarriage,count_healthIssue,count_Bullying,count_FemaleChild,count_lackInterest],
@@ -254,7 +255,8 @@ app.get("/api/data",async(req,res)=>{
             district1_total : district1_total,
             district1Boys_total :district1Boys_total,
             district1Girls_total :district1Girls_total,
-            district1_pieChartData : [district1Poverty_total,district1ChildMarriage_total,district1HealthIssue_total,district1Bullying_total,district1femaleChild_total,district1LackofINterest_total]
+            district1_pieChartData : [district1Poverty_total,district1ChildMarriage_total,district1HealthIssue_total,district1Bullying_total,district1femaleChild_total,district1LackofINterest_total],
+            schname : collectionName,
           };
         //   console.log(Totalentries.countDocuments({selectreason:"Poverty"}));
     
